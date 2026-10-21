@@ -10,4 +10,111 @@ items:
   descendants_targets: []
   path: "/projects"
   file: content/fr/projects/_index.html
+- title: À propos
+  slug: a-propos
+  target: "/a-propos/"
+  kind: page
+  new_tab: false
+  children: []
+  descendants_targets: []
+  path: "/pages/a-propos"
+  file: content/fr/pages/a-propos/_index.html
+- title: Services
+  slug: services
+  target: "/services/"
+  kind: page
+  new_tab: false
+  children:
+  - title: Innovation
+    slug: innovation
+    target: "/services/innovation/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/services/innovation"
+    file: content/fr/pages/services/innovation/_index.html
+  - title: Exploration
+    slug: exploration
+    target: "/services/exploration/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/services/exploration"
+    file: content/fr/pages/services/exploration/_index.html
+  - title: Acculturation
+    slug: acculturation
+    target: "/services/acculturation/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/services/acculturation"
+    file: content/fr/pages/services/acculturation/_index.html
+  - title: Transfert
+    slug: transfert
+    target: "/services/transfert/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/services/transfert"
+    file: content/fr/pages/services/transfert/_index.html
+  - title: Valorisation
+    slug: valorisation
+    target: "/services/valorisation/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/services/valorisation"
+    file: content/fr/pages/services/valorisation/_index.html
+  - title: Recherche-action
+    slug: recherche-action
+    target: "/services/recherche-action/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/services/recherche-action"
+    file: content/fr/pages/services/recherche-action/_index.html
+  descendants_targets:
+  - "/services/acculturation/"
+  - "/services/exploration/"
+  - "/services/innovation/"
+  - "/services/recherche-action/"
+  - "/services/transfert/"
+  - "/services/valorisation/"
+  path: "/pages/services"
+  file: content/fr/pages/services/_index.html
+- title: Thématiques
+  slug: thematiques
+  target: "/thematiques/"
+  kind: page
+  new_tab: false
+  children:
+  - title: Social
+    slug: social
+    target: "/thematiques/social/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/thematiques/social"
+    file: content/fr/pages/thematiques/social/_index.html
+  - title: Transition
+    slug: transition
+    target: "/thematiques/transition/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/thematiques/transition"
+    file: content/fr/pages/thematiques/transition/_index.html
+  descendants_targets:
+  - "/thematiques/social/"
+  - "/thematiques/transition/"
+  path: "/pages/thematiques"
+  file: content/fr/pages/thematiques/_index.html
 
