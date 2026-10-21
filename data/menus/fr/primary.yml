@@ -112,8 +112,38 @@ items:
     descendants_targets: []
     path: "/pages/thematiques/transition"
     file: content/fr/pages/thematiques/transition/_index.html
+  - title: Numérique
+    slug: numerique
+    target: "/thematiques/numerique/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/thematiques/numerique"
+    file: content/fr/pages/thematiques/numerique/_index.html
+  - title: Soin
+    slug: soin
+    target: "/thematiques/soin/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/thematiques/soin"
+    file: content/fr/pages/thematiques/soin/_index.html
+  - title: Communs
+    slug: communs
+    target: "/thematiques/communs/"
+    kind: page
+    new_tab: false
+    children: []
+    descendants_targets: []
+    path: "/pages/thematiques/communs"
+    file: content/fr/pages/thematiques/communs/_index.html
   descendants_targets:
+  - "/thematiques/communs/"
+  - "/thematiques/numerique/"
   - "/thematiques/social/"
+  - "/thematiques/soin/"
   - "/thematiques/transition/"
   path: "/pages/thematiques"
   file: content/fr/pages/thematiques/_index.html
