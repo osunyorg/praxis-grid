@@ -28,3 +28,14 @@
         blockquote.is-long p
             font-size: inherit
             line-height: inherit
+
+// Hero: when a subtitle exists, the free part of the h1 becomes an overline (h3 style)
+// and the subtitle span becomes the main title (h1 style). Single h1 kept.
+.hero
+    .content
+        h1:has(> span)
+            @include h3
+            > span
+                @include h1
+                color: inherit
+                margin-top: $spacing-1
