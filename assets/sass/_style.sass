@@ -1,0 +1,9 @@
+// Buttons: the theme has no desktop line-height variable for buttons
+\:root
+    @include media-breakpoint-up(desktop)
+        --btn-line-height: #{$btn-line-height-desktop}
+
+// Rich text: keep a larger space before headings than between paragraphs
+.rich-text
+    > * + :is(h1, h2, h3, h4, h5, h6)
+        margin-top: $rich-text-vertical-space-before-heading
