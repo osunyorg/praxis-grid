@@ -55,10 +55,16 @@ footer#document-footer
     .nav-level-3 a
         @include signature
 
-// Menu: dropdown groups with children
-
 .menu .dropdown-menu .nav-level-2:has(> .has-children)
     @include grid(2, desktop)
     @include media-breakpoint-up(desktop)
+        grid-template-columns: columns(4) 1fr
         > li + li
             margin-top: 0
+
+.menu .has-children:not(.upper-menu-i18n, .primary-i18n) .dropdown-menu.is-titled
+    @include media-breakpoint-up(desktop)
+        .dropdown-menu-heading
+            width: columns(4)
+        .nav-level-2
+            width: columns(8)
