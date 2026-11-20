@@ -1,6 +1,11 @@
 theme: osuny
 _merge: deep
 params:
+  menu:
+    primary:
+      level_2:
+        title:
+          active: true
   breadcrumb:
     position: after-hero
   summary:

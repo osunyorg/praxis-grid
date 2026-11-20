@@ -46,3 +46,19 @@ header#document-header,
 footer#document-footer
     .logo .logo-text
         @include h3
+
+// Menu
+
+.menu .dropdown-menu
+    .nav-level-2 > li.has-children > span
+        @include meta
+    .nav-level-3 a
+        @include signature
+
+// Menu: dropdown groups with children
+
+.menu .dropdown-menu .nav-level-2:has(> .has-children)
+    @include grid(2, desktop)
+    @include media-breakpoint-up(desktop)
+        > li + li
+            margin-top: 0
