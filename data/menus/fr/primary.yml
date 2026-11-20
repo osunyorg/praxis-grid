@@ -75,61 +75,82 @@ items:
   kind: page
   new_tab: false
   children:
-  - title: Innovation
-    slug: innovation
-    target: "/services/innovation/"
-    kind: page
+  - title: Pour la recherche
+    slug: pour-la-recherche
+    target: ''
+    kind: blank
     new_tab: false
-    children: []
-    descendants_targets: []
-    path: "/pages/services/innovation"
-    file: content/fr/pages/services/innovation/_index.html
-  - title: Exploration
-    slug: exploration
-    target: "/services/exploration/"
-    kind: page
+    children:
+    - title: Recherche-action
+      slug: recherche-action
+      target: "/services/recherche-action/"
+      kind: page
+      new_tab: false
+      children: []
+      descendants_targets: []
+      path: "/pages/services/recherche-action"
+      file: content/fr/pages/services/recherche-action/_index.html
+    - title: Transfert
+      slug: transfert
+      target: "/services/transfert/"
+      kind: page
+      new_tab: false
+      children: []
+      descendants_targets: []
+      path: "/pages/services/transfert"
+      file: content/fr/pages/services/transfert/_index.html
+    - title: Valorisation
+      slug: valorisation
+      target: "/services/valorisation/"
+      kind: page
+      new_tab: false
+      children: []
+      descendants_targets: []
+      path: "/pages/services/valorisation"
+      file: content/fr/pages/services/valorisation/_index.html
+    descendants_targets:
+    - "/services/recherche-action/"
+    - "/services/transfert/"
+    - "/services/valorisation/"
+  - title: Pour les organisations
+    slug: pour-les-organisations
+    target: ''
+    kind: blank
     new_tab: false
-    children: []
-    descendants_targets: []
-    path: "/pages/services/exploration"
-    file: content/fr/pages/services/exploration/_index.html
-  - title: Acculturation
-    slug: acculturation
-    target: "/services/acculturation/"
-    kind: page
-    new_tab: false
-    children: []
-    descendants_targets: []
-    path: "/pages/services/acculturation"
-    file: content/fr/pages/services/acculturation/_index.html
-  - title: Transfert
-    slug: transfert
-    target: "/services/transfert/"
-    kind: page
-    new_tab: false
-    children: []
-    descendants_targets: []
-    path: "/pages/services/transfert"
-    file: content/fr/pages/services/transfert/_index.html
-  - title: Valorisation
-    slug: valorisation
-    target: "/services/valorisation/"
-    kind: page
-    new_tab: false
-    children: []
-    descendants_targets: []
-    path: "/pages/services/valorisation"
-    file: content/fr/pages/services/valorisation/_index.html
-  - title: Recherche-action
-    slug: recherche-action
-    target: "/services/recherche-action/"
-    kind: page
-    new_tab: false
-    children: []
-    descendants_targets: []
-    path: "/pages/services/recherche-action"
-    file: content/fr/pages/services/recherche-action/_index.html
+    children:
+    - title: Acculturation
+      slug: acculturation
+      target: "/services/acculturation/"
+      kind: page
+      new_tab: false
+      children: []
+      descendants_targets: []
+      path: "/pages/services/acculturation"
+      file: content/fr/pages/services/acculturation/_index.html
+    - title: Exploration
+      slug: exploration
+      target: "/services/exploration/"
+      kind: page
+      new_tab: false
+      children: []
+      descendants_targets: []
+      path: "/pages/services/exploration"
+      file: content/fr/pages/services/exploration/_index.html
+    - title: Innovation
+      slug: innovation
+      target: "/services/innovation/"
+      kind: page
+      new_tab: false
+      children: []
+      descendants_targets: []
+      path: "/pages/services/innovation"
+      file: content/fr/pages/services/innovation/_index.html
+    descendants_targets:
+    - "/services/acculturation/"
+    - "/services/exploration/"
+    - "/services/innovation/"
   descendants_targets:
+  - ''
   - "/services/acculturation/"
   - "/services/exploration/"
   - "/services/innovation/"
