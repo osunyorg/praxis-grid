@@ -15,6 +15,74 @@ for = ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.webp"]
 Cache-Control = "max-age=31536000, no-transform, public"
 
 [[redirects]]
+from = "/services/organisations-1/index.html"
+to = "/services/pour-organisations/"
+
+[[redirects]]
+from = "/services/laboratoires-1/transfert/index.html"
+to = "/services/pour-laboratoires/transfert/"
+
+[[redirects]]
+from = "/services/laboratoires-1/valorisation/index.html"
+to = "/services/pour-laboratoires/valorisation/"
+
+[[redirects]]
+from = "/services/pour-les-organisations/exploration/index.html"
+to = "/services/pour-organisations/exploration/"
+
+[[redirects]]
+from = "/services/organisations-1/exploration/index.html"
+to = "/services/pour-organisations/exploration/"
+
+[[redirects]]
+from = "/services/exploration/index.html"
+to = "/services/pour-organisations/exploration/"
+
+[[redirects]]
+from = "/services/transfert/index.html"
+to = "/services/pour-laboratoires/transfert/"
+
+[[redirects]]
+from = "/services/recherche-action/index.html"
+to = "/services/pour-laboratoires/recherche-action/"
+
+[[redirects]]
 from = "/agenda/index.html"
 to = "/evenements/"
+
+[[redirects]]
+from = "/services/pour-les-organisations/acculturation/index.html"
+to = "/services/pour-organisations/acculturation/"
+
+[[redirects]]
+from = "/services/valorisation/index.html"
+to = "/services/pour-laboratoires/valorisation/"
+
+[[redirects]]
+from = "/services/organisations-1/innovation/index.html"
+to = "/services/pour-organisations/innovation/"
+
+[[redirects]]
+from = "/services/laboratoires-1/recherche-action/index.html"
+to = "/services/pour-laboratoires/recherche-action/"
+
+[[redirects]]
+from = "/services/organisations-1/acculturation/index.html"
+to = "/services/pour-organisations/acculturation/"
+
+[[redirects]]
+from = "/services/laboratoires-1/index.html"
+to = "/services/pour-laboratoires/"
+
+[[redirects]]
+from = "/services/innovation/index.html"
+to = "/services/pour-organisations/innovation/"
+
+[[redirects]]
+from = "/services/pour-les-organisations/innovation/index.html"
+to = "/services/pour-organisations/innovation/"
+
+[[redirects]]
+from = "/services/acculturation/index.html"
+to = "/services/pour-organisations/acculturation/"
 

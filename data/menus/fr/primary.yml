@@ -75,43 +75,45 @@ items:
   kind: page
   new_tab: false
   children:
-  - title: Pour la recherche
-    slug: pour-la-recherche
-    target: ''
-    kind: blank
+  - title: Pour les laboratoires
+    slug: pour-les-laboratoires
+    target: "/services/pour-laboratoires/"
+    kind: page
     new_tab: false
     children:
     - title: Recherche-action
       slug: recherche-action
-      target: "/services/recherche-action/"
+      target: "/services/pour-laboratoires/recherche-action/"
       kind: page
       new_tab: false
       children: []
       descendants_targets: []
-      path: "/pages/services/recherche-action"
-      file: content/fr/pages/services/recherche-action/_index.html
+      path: "/pages/services/pour-laboratoires/recherche-action"
+      file: content/fr/pages/services/pour-laboratoires/recherche-action/_index.html
     - title: Transfert
       slug: transfert
-      target: "/services/transfert/"
+      target: "/services/pour-laboratoires/transfert/"
       kind: page
       new_tab: false
       children: []
       descendants_targets: []
-      path: "/pages/services/transfert"
-      file: content/fr/pages/services/transfert/_index.html
+      path: "/pages/services/pour-laboratoires/transfert"
+      file: content/fr/pages/services/pour-laboratoires/transfert/_index.html
     - title: Valorisation
       slug: valorisation
-      target: "/services/valorisation/"
+      target: "/services/pour-laboratoires/valorisation/"
       kind: page
       new_tab: false
       children: []
       descendants_targets: []
-      path: "/pages/services/valorisation"
-      file: content/fr/pages/services/valorisation/_index.html
+      path: "/pages/services/pour-laboratoires/valorisation"
+      file: content/fr/pages/services/pour-laboratoires/valorisation/_index.html
     descendants_targets:
-    - "/services/recherche-action/"
-    - "/services/transfert/"
-    - "/services/valorisation/"
+    - "/services/pour-laboratoires/recherche-action/"
+    - "/services/pour-laboratoires/transfert/"
+    - "/services/pour-laboratoires/valorisation/"
+    path: "/pages/services/pour-laboratoires"
+    file: content/fr/pages/services/pour-laboratoires/_index.html
   - title: Pour les organisations
     slug: pour-les-organisations
     target: ''
@@ -120,43 +122,44 @@ items:
     children:
     - title: Acculturation
       slug: acculturation
-      target: "/services/acculturation/"
+      target: "/services/pour-organisations/acculturation/"
       kind: page
       new_tab: false
       children: []
       descendants_targets: []
-      path: "/pages/services/acculturation"
-      file: content/fr/pages/services/acculturation/_index.html
+      path: "/pages/services/pour-organisations/acculturation"
+      file: content/fr/pages/services/pour-organisations/acculturation/_index.html
     - title: Exploration
       slug: exploration
-      target: "/services/exploration/"
+      target: "/services/pour-organisations/exploration/"
       kind: page
       new_tab: false
       children: []
       descendants_targets: []
-      path: "/pages/services/exploration"
-      file: content/fr/pages/services/exploration/_index.html
+      path: "/pages/services/pour-organisations/exploration"
+      file: content/fr/pages/services/pour-organisations/exploration/_index.html
     - title: Innovation
       slug: innovation
-      target: "/services/innovation/"
+      target: "/services/pour-organisations/innovation/"
       kind: page
       new_tab: false
       children: []
       descendants_targets: []
-      path: "/pages/services/innovation"
-      file: content/fr/pages/services/innovation/_index.html
+      path: "/pages/services/pour-organisations/innovation"
+      file: content/fr/pages/services/pour-organisations/innovation/_index.html
     descendants_targets:
-    - "/services/acculturation/"
-    - "/services/exploration/"
-    - "/services/innovation/"
+    - "/services/pour-organisations/acculturation/"
+    - "/services/pour-organisations/exploration/"
+    - "/services/pour-organisations/innovation/"
   descendants_targets:
   - ''
-  - "/services/acculturation/"
-  - "/services/exploration/"
-  - "/services/innovation/"
-  - "/services/recherche-action/"
-  - "/services/transfert/"
-  - "/services/valorisation/"
+  - "/services/pour-laboratoires/"
+  - "/services/pour-laboratoires/recherche-action/"
+  - "/services/pour-laboratoires/transfert/"
+  - "/services/pour-laboratoires/valorisation/"
+  - "/services/pour-organisations/acculturation/"
+  - "/services/pour-organisations/exploration/"
+  - "/services/pour-organisations/innovation/"
   path: "/pages/services"
   file: content/fr/pages/services/_index.html
 - title: Projets
