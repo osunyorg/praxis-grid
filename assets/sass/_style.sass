@@ -68,3 +68,16 @@ footer#document-footer
             width: columns(4)
         .nav-level-2
             width: columns(8)
+
+// Background grid: vertical lines on both edges of each of the 12 columns (desktop only)
+body
+    @include media-breakpoint-up(desktop)
+        background-image: repeating-linear-gradient(to right, $background-grid-color 0 $border-width, transparent $border-width calc(var(--column-width) - #{$border-width}), $background-grid-color calc(var(--column-width) - #{$border-width}) var(--column-width), transparent var(--column-width) calc(var(--column-width) + var(--grid-gutter)))
+        background-position: center top
+        background-repeat: no-repeat
+        background-size: columns(12) 100%
+
+// Grid: theme negates the Sass value, invalid with calc(); derive it from the CSS variable
+\:root
+    @include media-breakpoint-up(lg)
+        --grid-gutter-negative: calc(var(--grid-gutter) * -1)
