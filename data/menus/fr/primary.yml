@@ -116,8 +116,8 @@ items:
     file: content/fr/pages/services/pour-laboratoires/_index.html
   - title: Pour les organisations
     slug: pour-les-organisations
-    target: ''
-    kind: blank
+    target: "/services/pour-organisations/"
+    kind: page
     new_tab: false
     children:
     - title: Acculturation
@@ -151,12 +151,14 @@ items:
     - "/services/pour-organisations/acculturation/"
     - "/services/pour-organisations/exploration/"
     - "/services/pour-organisations/innovation/"
+    path: "/pages/services/pour-organisations"
+    file: content/fr/pages/services/pour-organisations/_index.html
   descendants_targets:
-  - ''
   - "/services/pour-laboratoires/"
   - "/services/pour-laboratoires/recherche-action/"
   - "/services/pour-laboratoires/transfert/"
   - "/services/pour-laboratoires/valorisation/"
+  - "/services/pour-organisations/"
   - "/services/pour-organisations/acculturation/"
   - "/services/pour-organisations/exploration/"
   - "/services/pour-organisations/innovation/"
