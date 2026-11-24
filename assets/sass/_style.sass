@@ -30,7 +30,7 @@
             line-height: inherit
 
 // Hero
-    
+
 .hero
     .content
         h1:has(> span)
@@ -55,6 +55,7 @@ footer#document-footer
     .nav-level-3 a
         @include signature
 
+// Menu: groups side by side
 .menu .dropdown-menu .nav-level-2:has(> .has-children)
     @include grid(2, desktop)
     @include media-breakpoint-up(desktop)
@@ -62,6 +63,7 @@ footer#document-footer
         > li + li
             margin-top: 0
 
+// Menu: titled dropdown
 .menu .has-children:not(.upper-menu-i18n, .primary-i18n) .dropdown-menu.is-titled
     @include media-breakpoint-up(desktop)
         .dropdown-menu-heading
@@ -69,16 +71,19 @@ footer#document-footer
         .nav-level-2
             width: columns(8)
 
-// Background grid: vertical lines on both edges of each of the 12 columns (tablet and desktop)
-body
-    @include media-breakpoint-up(md)
-        background-image: repeating-linear-gradient(to right, $background-grid-color 0 $border-width, transparent $border-width calc(var(--column-width) - #{$border-width}), $background-grid-color calc(var(--column-width) - #{$border-width}) var(--column-width), transparent var(--column-width) calc(var(--column-width) + var(--grid-gutter)))
-        background-position: center top
-        background-repeat: no-repeat
-        background-size: columns(12) 100%
+// Background grid
 
-// Grid: theme has no tablet gutter; set it from md, after the theme's lg and xxl declarations
-// Theme negates the Sass value, invalid with calc(); derive it from the CSS variable
+body
+    --background-grid-column: calc((var(--grid-width) - var(--grid-gutter) * #{$background-grid-columns-mobile + 1}) / #{$background-grid-columns-mobile})
+    background-image: repeating-linear-gradient(to right, $background-grid-color 0 $border-width, transparent $border-width calc(var(--background-grid-column) - #{$border-width}), $background-grid-color calc(var(--background-grid-column) - #{$border-width}) var(--background-grid-column), transparent var(--background-grid-column) calc(var(--background-grid-column) + var(--grid-gutter)))
+    background-position: center top
+    background-repeat: no-repeat
+    background-size: calc(var(--grid-width) - var(--grid-gutter) * 2) 100%
+    @include media-breakpoint-up(md)
+        --background-grid-column: var(--column-width)
+
+// Grid
+
 \:root
     @include media-breakpoint-up(md)
         --grid-gutter: #{$grid-gutter-md}
