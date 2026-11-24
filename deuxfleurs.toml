@@ -19,6 +19,10 @@ from = "/services/organisations-1/index.html"
 to = "/services/pour-organisations/"
 
 [[redirects]]
+from = "/projets/2027-identifier-les-besoins-des-entreprises-neo-aquitaines/index.html"
+to = "/projets/2027-aquirisk-besoins-entreprises-neo-aquitaines/"
+
+[[redirects]]
 from = "/services/laboratoires-1/transfert/index.html"
 to = "/services/pour-laboratoires/transfert/"
 
@@ -73,6 +77,10 @@ to = "/services/pour-organisations/acculturation/"
 [[redirects]]
 from = "/services/laboratoires-1/index.html"
 to = "/services/pour-laboratoires/"
+
+[[redirects]]
+from = "/projets/2026-chu-amelioration-interne-et-e-sante/index.html"
+to = "/projets/2026-chu-bordeaux-innovation-interne/"
 
 [[redirects]]
 from = "/services/innovation/index.html"
