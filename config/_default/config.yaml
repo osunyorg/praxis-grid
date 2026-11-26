@@ -18,3 +18,7 @@ params:
   home:
     head:
       title: site
+  components:
+    lightbox:
+      in_hero:
+        disabled: true
