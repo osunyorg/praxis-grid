@@ -113,12 +113,12 @@ body.pages__section .hero--image-square
     @include media-breakpoint-up(md)
         --illustration-size: calc(#{columns(3)} + var(--grid-gutter))
 
-// Pages: card titles
+// Cards: titles
 
-.pages--grid .page
-    .page-title
+=card-titles($title, $subtitle)
+    .#{$title}
         @include h4
-    .page-subtitle
+    .#{$subtitle}
         @include h3
         @include icon(arrow-right-line, after, true)
         color: var(--color-text)
@@ -126,10 +126,16 @@ body.pages__section .hero--image-square
             left: 0
             position: relative
             transition: left $arrow-duration $arrow-ease-transition
-    &:has(.page-title a:hover, .page-title a:focus-visible) .page-subtitle::after
+    &:has(.#{$title} a:hover, .#{$title} a:focus-visible) .#{$subtitle}::after
         left: pxToRem(10)
-    hgroup:has(.page-subtitle) .page-title a::after
+    hgroup:has(.#{$subtitle}) .#{$title} a::after
         content: none
+
+.pages--grid .page
+    +card-titles(page-title, page-subtitle)
+
+.projects--grid .project
+    +card-titles(project-title, project-subtitle)
 
 // Logo
 
