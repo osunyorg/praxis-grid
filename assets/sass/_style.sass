@@ -71,11 +71,14 @@ body.pages__section .hero--image-square
         .content
             figure
                 margin-top: $spacing-5
-                width: calc(#{columns(4)} + var(--grid-gutter))
+    @include media-breakpoint-up(md)
+        .content
+            figure
+                width: calc(#{columns(3)} + var(--grid-gutter))
     @include media-breakpoint-up(desktop)
         .content
             .hero-text
-                width: calc(#{columns(7)} + var(--grid-gutter))
+                width: calc(#{columns(8)} + var(--grid-gutter))
 
 // Pages: svg illustration
 
@@ -84,15 +87,11 @@ body.pages__section .hero--image-square
 
 .pages--grid .page .media:has(picture.is-svg)
     @include media-breakpoint-up(md)
-        overflow: visible
         picture
             display: block
         img
             aspect-ratio: 1
-            margin-left: var(--grid-gutter-negative)
-            margin-top: var(--grid-gutter-negative)
-            max-width: none
-            width: calc(var(--grid-gutter) * 8)
+            width: calc(#{columns(3)} + var(--grid-gutter))
 
 // Logo
 
