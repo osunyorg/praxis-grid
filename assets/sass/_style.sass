@@ -123,10 +123,11 @@ body.pages__section .hero--image-square
         @include icon(arrow-right-line, after, true)
         color: var(--color-text)
         &::after
-            display: inline-block
-            transition: transform $arrow-duration $arrow-ease-transition
+            left: 0
+            position: relative
+            transition: left $arrow-duration $arrow-ease-transition
     &:has(.page-title a:hover, .page-title a:focus-visible) .page-subtitle::after
-        transform: translateX(pxToRem(10))
+        left: pxToRem(10)
     hgroup:has(.page-subtitle) .page-title a::after
         content: none
 
