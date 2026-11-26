@@ -77,6 +77,23 @@ body.pages__section .hero--image-square
             .hero-text
                 width: calc(#{columns(7)} + var(--grid-gutter))
 
+// Pages: svg illustration
+
+.page .media picture.is-svg img
+    object-position: left center
+
+.pages--grid .page .media:has(picture.is-svg)
+    @include media-breakpoint-up(md)
+        overflow: visible
+        picture
+            display: block
+        img
+            aspect-ratio: 1
+            margin-left: var(--grid-gutter-negative)
+            margin-top: var(--grid-gutter-negative)
+            max-width: none
+            width: calc(var(--grid-gutter) * 8)
+
 // Logo
 
 header#document-header,
