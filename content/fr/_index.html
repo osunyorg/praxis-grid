@@ -10,7 +10,7 @@ header_text: >-
 url: "/"
 slug: ""
 date: 2026-10-08T15:16:03+02:00
-lastmod: 2026-11-20T23:30:26+01:00
+lastmod: 2026-11-26T19:39:02+01:00
 meta:
   hugo:
     permalink: "/"
@@ -19,7 +19,7 @@ meta:
     slug: ""
   dates:
     created_at: 2026-10-08T15:16:03+02:00
-    updated_at: 2026-11-20T23:30:26+01:00
+    updated_at: 2026-11-26T19:39:02+01:00
     published_at: 2026-10-08T15:16:03+02:00
 search:
   id: "6478dd4c-be9a-49dd-8cb7-6bb217c5a3ad"
@@ -135,39 +135,67 @@ contents_reading_time:
     moins d'une minute
 contents:
   - kind: block
-    template: features
+    template: pages
 
 
     ranks:
       base: 2
+      children: 2
     top:
-      active: false
+      active: true
+      title: 
+        value: >-
+          Thématiques
+        heading: 2
+        link: "/thematiques/"
 
     data:
-      layout: grid
-
+      page:
+        permalink: "/thematiques/"
+        path: "/pages/thematiques"
+        slug: "thematiques"
+        file: "content/fr/pages/thematiques/_index.html"
       options:
-        icons: false
+        image: true
+        subtitle: true
+        categories: false
+        main_summary: true
+        summary: true
 
-      elements:
-
-
-  - kind: block
-    template: features
-
-
-    ranks:
-      base: 2
-    top:
-      active: false
-
-    data:
       layout: grid
+      pages:
+        - permalink: "/thematiques/social/"
+          path: "/pages/thematiques/social"
+          slug: "social"
+          file: "content/fr/pages/thematiques/social/_index.html"
+          name: >-
+            Social
+        - permalink: "/thematiques/transition/"
+          path: "/pages/thematiques/transition"
+          slug: "transition"
+          file: "content/fr/pages/thematiques/transition/_index.html"
+          name: >-
+            Transition
+        - permalink: "/thematiques/numerique/"
+          path: "/pages/thematiques/numerique"
+          slug: "numerique"
+          file: "content/fr/pages/thematiques/numerique/_index.html"
+          name: >-
+            Numérique
+        - permalink: "/thematiques/soin/"
+          path: "/pages/thematiques/soin"
+          slug: "soin"
+          file: "content/fr/pages/thematiques/soin/_index.html"
+          name: >-
+            Soin
+        - permalink: "/thematiques/communs/"
+          path: "/pages/thematiques/communs"
+          slug: "communs"
+          file: "content/fr/pages/thematiques/communs/_index.html"
+          name: >-
+            Communs
 
-      options:
-        icons: false
-
-      elements:
+      quantity: 5
 
 
 
