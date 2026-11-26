@@ -103,14 +103,15 @@ body.pages__section .hero--image-square
     object-position: left center
 
 .pages--grid .page .media:has(picture.is-svg)
+    --illustration-size: calc(var(--background-grid-column) * 2 + var(--grid-gutter))
+    overflow: visible
+    picture
+        display: block
+    img
+        aspect-ratio: 1
+        +illustration-padded
     @include media-breakpoint-up(md)
         --illustration-size: calc(#{columns(3)} + var(--grid-gutter))
-        overflow: visible
-        picture
-            display: block
-        img
-            aspect-ratio: 1
-            +illustration-padded
 
 // Logo
 
