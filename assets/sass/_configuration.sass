@@ -1,16 +1,26 @@
+// Fonts
+
 $font-fallback: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif // Custom
 $heading-font-family: "Brockmann", $font-fallback
 $body-font-family: "Brockmann", $font-fallback
 $heading-font-weight: 600
 $font-weight-medium: 500 // Custom
 
-$header-background: none
-$header-border-bottom-width: 0
-$header-dropdown-full: true
-$header-dropdown-background: var(--color-background)
-$hero-background-color: none
-$footer-background-color: none
+// Borders
 
+$color-border: color-mix(in srgb, var(--color-text) 45%, transparent)
+$meta-table-border-color: color-mix(in srgb, var(--color-text) 15%, transparent) // Custom
+$background-grid-color: var(--color-background-alt) // Custom
+
+// Grid
+
+$grid-gutter-md: calc(var(--grid-width) / 25) // Custom
+$grid-gutter-lg: $grid-gutter-md
+$grid-gutter-xxl: $grid-gutter-lg
+
+// Background grid
+
+$background-grid-columns-mobile: 4 // Custom
 
 // Headings
 
@@ -44,7 +54,7 @@ $h6-size-desktop: pxToRem(18)
 $h6-line-height: 145%
 $h6-weight: $heading-font-weight
 
-// Texts
+// Texts: lead
 
 $lead-size: pxToRem(18)
 $lead-size-desktop: pxToRem(22)
@@ -54,28 +64,40 @@ $lead-weight: $font-weight-medium
 $lead-sidebar-size-desktop: pxToRem(22)
 $lead-sidebar-line-height-desktop: $lead-line-height-desktop
 
+// Texts: lead hero
+
 $lead-hero-size: pxToRem(20)
 $lead-hero-size-desktop: pxToRem(28)
 $lead-hero-line-height: 140%
+
+// Texts: body
 
 $body-size: pxToRem(16)
 $body-size-desktop: pxToRem(18)
 $body-line-height: 175%
 
+// Texts: small
+
 $small-size: pxToRem(14)
 $small-size-desktop: pxToRem(16)
 $small-line-height: 165%
+
+// Texts: signature
 
 $signature-size: pxToRem(18)
 $signature-size-desktop: pxToRem(20)
 $signature-line-height: 140%
 $signature-weight: $font-weight-medium
 
+// Texts: meta
+
 $meta-size: pxToRem(14)
 $meta-size-desktop: pxToRem(16)
 $meta-line-height: pxToRem(20)
 $meta-line-height-desktop: pxToRem(24)
 $meta-weight: $font-weight-medium
+
+// Texts: quote
 
 $quote-size: pxToRem(20)
 $quote-size-desktop: pxToRem(22)
@@ -86,12 +108,19 @@ $quote-style: normal
 $quote-size-short: pxToRem(22) // Custom
 $quote-line-height-short: 150% // Custom
 
-$block-testimonials-color: var(--color-text)
-
 // Paragraph spacing
 
 $rich-text-vertical-space-before: 0.5em
 $rich-text-vertical-space-before-heading: 1.25em // Custom
+
+// Header, hero, footer
+
+$header-background: none
+$header-border-bottom-width: 0
+$header-dropdown-full: true
+$header-dropdown-background: var(--color-background)
+$hero-background-color: none
+$footer-background-color: none
 
 // Buttons
 
@@ -102,34 +131,28 @@ $btn-line-height: pxToRem(20)
 $btn-line-height-desktop: pxToRem(24) // Custom
 $btn-color: var(--color-background)
 $btn-background: var(--color-text)
-$btn-border-radius: 0
-$btn-min-width: 0
-$btn-min-width-desktop: 0
+$btn-hover-background: transparent
 $btn-border-width: 1px
 $btn-border: $btn-border-width solid var(--btn-background)
-$btn-hover-background: transparent
 $btn-hover-border: $btn-border-width solid var(--color-text)
+$btn-border-radius: 0
 $btn-padding: calc(#{space(3)} - #{$btn-border-width}) space(5)
 $btn-padding-desktop: calc(#{space(4)} - #{$btn-border-width}) space(8)
-
-// Persons
-    
-$avatar-border-radius: 0
+$btn-min-width: 0
+$btn-min-width-desktop: 0
 
 // Blocks
+
 $block-space-y: space(24)
 $block-space-y-desktop: space(32)
 $block-space-y-with-sidebar: space(32)
+$block-testimonials-color: var(--color-text)
 
-// Background grid
-$background-grid-color: var(--color-background-alt) // Custom
-$background-grid-columns-mobile: 4 // Custom
+// Persons
+
+$avatar-border-radius: 0
 
 // Illustrations
+
 $illustration-size: 384 // Custom
 $illustration-padding: 2 // Custom
-
-// Grid
-$grid-gutter-md: calc(var(--grid-width) / 25) // Custom
-$grid-gutter-lg: $grid-gutter-md
-$grid-gutter-xxl: $grid-gutter-lg
