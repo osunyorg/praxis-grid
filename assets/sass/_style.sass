@@ -1,14 +1,105 @@
-// Buttons
+// Mixins: illustration
+
+=illustration-padded
+    display: block
+    margin-bottom: calc(var(--illustration-size) * #{-$illustration-padding} / #{$illustration-size})
+    margin-left: calc(var(--illustration-size) * #{-$illustration-padding} / #{$illustration-size})
+    margin-top: calc(var(--illustration-size) * #{-$illustration-padding} / #{$illustration-size})
+    max-width: none
+    width: calc(var(--illustration-size) * #{$illustration-size + $illustration-padding * 2} / #{$illustration-size})
+
+// Mixins: cards
+
+=pages-one-row($count, $columns, $columns-md)
+    .pages--grid:not(:has(.page-description)):has(> li:nth-child(#{$count}):last-child)
+        @include media-breakpoint-down(desktop)
+            display: grid
+            gap: $spacing-5 var(--grid-gutter)
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+            > li + li
+                margin-top: 0
+        @include media-breakpoint-between(md, desktop)
+            grid-template-columns: repeat($columns-md, minmax(0, 1fr))
+        @include in-page-without-sidebar
+            grid-template-columns: repeat($columns, minmax(0, 1fr))
+            .media:has(picture.is-svg)
+                --illustration-size: #{columns(2)}
+            .page-title,
+            .page-subtitle
+                hyphens: auto
+                word-break: normal
+            .page-title
+                font-size: var(--h5-size)
+                line-height: var(--h5-line-height)
+
+=card-titles($title, $subtitle)
+    .#{$title}
+        @include h4
+    .#{$subtitle}
+        @include h3
+        @include icon(arrow-right-line, after, true)
+        color: var(--color-text)
+        &::after
+            left: 0
+            position: relative
+            transition: left $arrow-duration $arrow-ease-transition
+    .#{$title} a:any-link::after
+        display: inline
+        left: 0
+        position: relative
+        transition: left $arrow-duration $arrow-ease-transition
+    &:has(.#{$title} a:hover, .#{$title} a:focus-visible)
+        .#{$title} a:any-link::after,
+        .#{$subtitle}::after
+            left: pxToRem(10)
+    hgroup:has(.#{$subtitle}) .#{$title} a::after
+        content: none
+
+// Mixins: categories
+
+=category-tag
+    @include meta
+    border: $border-width solid var(--color-border)
+    color: var(--color-text)
+    display: inline-block
+    padding: calc(#{space(1)} - #{$border-width}) calc(#{space(1.5)} - #{$border-width})
+    text-decoration: none
+    transition: border-color $menu-link-duration
+    @include media-breakpoint-up(desktop)
+        padding: calc(#{space(1)} - #{$border-width}) calc(#{space(2)} - #{$border-width})
+    &:hover,
+    &:focus-visible
+        border-color: var(--color-text)
+
+// Mixins: meta
+
+=meta-table-rows
+    &, .taxonomies > ul
+        > li
+            align-items: baseline
+            &:not(:first-child)
+                border-top-color: $meta-table-border-color
+    .taxonomy-children > li > a:any-link
+        margin-bottom: calc(#{space(1)} * -1)
+        margin-top: calc(#{space(1)} * -1)
+
+// Grid
 
 \:root
-    @include media-breakpoint-up(desktop)
-        --btn-line-height: #{$btn-line-height-desktop}
+    @include media-breakpoint-up(md)
+        --grid-gutter: #{$grid-gutter-md}
+        --grid-gutter-negative: calc(var(--grid-gutter) * -1)
 
-// Buttons: hero actions fit content below desktop
+// Background grid
 
-.hero .content .hero-actions a
-    @include media-breakpoint-down(desktop)
-        min-width: 0
+body
+    --background-grid-column: calc((var(--grid-width) - var(--grid-gutter) * #{$background-grid-columns-mobile + 1}) / #{$background-grid-columns-mobile})
+    background-image: repeating-linear-gradient(to right, $background-grid-color 0 $border-width, transparent $border-width var(--background-grid-column), $background-grid-color var(--background-grid-column) calc(var(--background-grid-column) + #{$border-width}), transparent calc(var(--background-grid-column) + #{$border-width}) calc(var(--background-grid-column) + var(--grid-gutter)))
+    background-position: center top
+    background-repeat: no-repeat
+    background-size: calc(var(--grid-width) - var(--grid-gutter) * 2 + #{$border-width}) 100%
+    @include media-breakpoint-up(md)
+        --background-grid-column: var(--column-width)
 
 // Paragraph spacing
 
@@ -16,24 +107,61 @@
     > * + :is(h1, h2, h3, h4, h5, h6)
         margin-top: $rich-text-vertical-space-before-heading
 
-// Testimonials
+// Header: logo
 
-.block-testimonials
-    blockquote
-        font-size: $quote-size-short
-        line-height: $quote-line-height-short
-        @include media-breakpoint-up(desktop)
-            font-size: $quote-size-desktop-short
-        &.is-long
-            font-size: $quote-size
-            line-height: $quote-line-height
-            @include media-breakpoint-up(desktop)
-                font-size: $quote-size-desktop-long
-    &--carousel
-        blockquote p,
-        blockquote.is-long p
-            font-size: inherit
-            line-height: inherit
+header#document-header,
+footer#document-footer
+    .logo .logo-text
+        @include h3
+
+// Header: menu
+
+.menu .dropdown-menu
+    .nav-level-2 > li.has-children > span
+        @include meta
+    .nav-level-3 a
+        @include signature
+
+.menu .dropdown-menu .nav-level-2:has(> .has-children)
+    @include grid(2, desktop)
+    @include media-breakpoint-up(desktop)
+        grid-template-columns: columns(4) 1fr
+        > li + li
+            margin-top: 0
+
+.menu .has-children:not(.upper-menu-i18n, .primary-i18n) .dropdown-menu.is-titled
+    @include media-breakpoint-up(desktop)
+        .dropdown-menu-heading
+            width: columns(4)
+        .nav-level-2
+            width: columns(8)
+
+// Header: mobile menu
+
+.menu
+    @include media-breakpoint-down(desktop)
+        margin-left: var(--grid-gutter-negative)
+        margin-right: var(--grid-gutter-negative)
+        .nav-level-1
+            > li
+                padding-left: var(--grid-gutter)
+                padding-right: var(--grid-gutter)
+            > li:first-child
+                border-top: var(--border-width) solid $background-grid-color
+            > li:not(:last-child)
+                border-bottom-color: $background-grid-color
+
+.search-button--primary .pf-trigger-btn
+    @include media-breakpoint-down(desktop)
+        justify-content: space-between
+        .pf-trigger-text
+            clip: auto !important
+            clip-path: none !important
+            height: auto !important
+            overflow: visible !important
+            position: static !important
+            white-space: normal !important
+            width: auto !important
 
 // Hero
 
@@ -49,7 +177,7 @@
                 color: inherit
                 margin-top: $spacing-1
 
-// Hero: square image
+// Hero: square image (must stay before the themes and projects rule)
 
 body:not(.persons__page) .hero--image-square
     @include media-breakpoint-between(md, desktop)
@@ -60,16 +188,6 @@ body:not(.persons__page) .hero--image-square
         .content
             figure
                 width: calc(#{columns(4)} + var(--grid-gutter))
-
-// Illustrations
-
-=illustration-padded
-    display: block
-    margin-bottom: calc(var(--illustration-size) * #{-$illustration-padding} / #{$illustration-size})
-    margin-left: calc(var(--illustration-size) * #{-$illustration-padding} / #{$illustration-size})
-    margin-top: calc(var(--illustration-size) * #{-$illustration-padding} / #{$illustration-size})
-    max-width: none
-    width: calc(var(--illustration-size) * #{$illustration-size + $illustration-padding * 2} / #{$illustration-size})
 
 // Hero: themes and projects square image
 
@@ -103,7 +221,47 @@ body:is(.pages__section, .projects__page) .hero--image-square
             .hero-text
                 width: columns(8)
 
-// Pages: svg illustration
+// Buttons
+
+\:root
+    @include media-breakpoint-up(desktop)
+        --btn-line-height: #{$btn-line-height-desktop}
+
+.hero .content .hero-actions a
+    @include media-breakpoint-down(desktop)
+        min-width: 0
+
+// Blocks
+
+.document-content > .blocks .block:first-child
+    margin-top: var(--block-space-y)
+
+// Blocks: testimonials
+
+.block-testimonials
+    blockquote
+        font-size: $quote-size-short
+        line-height: $quote-line-height-short
+        @include media-breakpoint-up(desktop)
+            font-size: $quote-size-desktop-short
+        &.is-long
+            font-size: $quote-size
+            line-height: $quote-line-height
+            @include media-breakpoint-up(desktop)
+                font-size: $quote-size-desktop-long
+    &--carousel
+        blockquote p,
+        blockquote.is-long p
+            font-size: inherit
+            line-height: inherit
+
+// Blocks: organizations
+
+.organizations--grid
+    @include media-breakpoint-up(md)
+        grid-column-gap: var(--grid-gutter) !important
+
+// Cards: illustrations
 
 .page .media picture.is-svg img
     object-position: left center
@@ -119,57 +277,12 @@ body:is(.pages__section, .projects__page) .hero--image-square
     @include media-breakpoint-up(md)
         --illustration-size: calc(#{columns(3)} + var(--grid-gutter))
 
-// Pages: 4 or 5 cards without description, one row on desktop
-
-=pages-one-row($count, $columns, $columns-md)
-    .pages--grid:not(:has(.page-description)):has(> li:nth-child(#{$count}):last-child)
-        @include media-breakpoint-down(desktop)
-            display: grid
-            gap: $spacing-5 var(--grid-gutter)
-            grid-template-columns: repeat(2, minmax(0, 1fr))
-            > li + li
-                margin-top: 0
-        @include media-breakpoint-between(md, desktop)
-            grid-template-columns: repeat($columns-md, minmax(0, 1fr))
-        @include in-page-without-sidebar
-            grid-template-columns: repeat($columns, minmax(0, 1fr))
-            .media:has(picture.is-svg)
-                --illustration-size: #{columns(2)}
-            .page-title,
-            .page-subtitle
-                hyphens: auto
-                word-break: normal
-            .page-title
-                font-size: var(--h5-size)
-                line-height: var(--h5-line-height)
+// Cards: 4 or 5 without description, one row on desktop
 
 +pages-one-row(4, 4, 2)
 +pages-one-row(5, 6, 3)
 
 // Cards: titles
-
-=card-titles($title, $subtitle)
-    .#{$title}
-        @include h4
-    .#{$subtitle}
-        @include h3
-        @include icon(arrow-right-line, after, true)
-        color: var(--color-text)
-        &::after
-            left: 0
-            position: relative
-            transition: left $arrow-duration $arrow-ease-transition
-    .#{$title} a:any-link::after
-        display: inline
-        left: 0
-        position: relative
-        transition: left $arrow-duration $arrow-ease-transition
-    &:has(.#{$title} a:hover, .#{$title} a:focus-visible)
-        .#{$title} a:any-link::after,
-        .#{$subtitle}::after
-            left: pxToRem(10)
-    hgroup:has(.#{$subtitle}) .#{$title} a::after
-        content: none
 
 .pages--grid .page
     +card-titles(page-title, page-subtitle)
@@ -177,26 +290,7 @@ body:is(.pages__section, .projects__page) .hero--image-square
 .projects--grid .project
     +card-titles(project-title, project-subtitle)
 
-// Blocks: first block spaced like the others
-
-.document-content > .blocks .block:first-child
-    margin-top: var(--block-space-y)
-
 // Categories
-
-=category-tag
-    @include meta
-    border: $border-width solid var(--color-border)
-    color: var(--color-text)
-    display: inline-block
-    padding: calc(#{space(1)} - #{$border-width}) calc(#{space(1.5)} - #{$border-width})
-    text-decoration: none
-    transition: border-color $menu-link-duration
-    @include media-breakpoint-up(desktop)
-        padding: calc(#{space(1)} - #{$border-width}) calc(#{space(2)} - #{$border-width})
-    &:hover,
-    &:focus-visible
-        border-color: var(--color-text)
 
 ul[class$="-categories"]:not(.taxonomy-categories ul),
 .taxonomies-single .terms .taxonomy-children
@@ -208,103 +302,9 @@ ul[class$="-categories"]:not(.taxonomy-categories ul),
 
 // Meta: table rows
 
-=meta-table-rows
-    &, .taxonomies > ul
-        > li
-            align-items: baseline
-            &:not(:first-child)
-                border-top-color: $meta-table-border-color
-    .taxonomy-children > li > a:any-link
-        margin-bottom: calc(#{space(1)} * -1)
-        margin-top: calc(#{space(1)} * -1)
-
 .single-meta.with-labels
     @include media-breakpoint-down(desktop)
         +meta-table-rows
     @include in-page-with-sidebar
         &.content-meta
             +meta-table-rows
-
-// Logo
-
-header#document-header,
-footer#document-footer
-    .logo .logo-text
-        @include h3
-
-// Organizations
-
-.organizations--grid
-    @include media-breakpoint-up(md)
-        grid-column-gap: var(--grid-gutter) !important
-
-// Menu
-
-.menu .dropdown-menu
-    .nav-level-2 > li.has-children > span
-        @include meta
-    .nav-level-3 a
-        @include signature
-
-// Menu: mobile lines
-
-.menu
-    @include media-breakpoint-down(desktop)
-        margin-left: var(--grid-gutter-negative)
-        margin-right: var(--grid-gutter-negative)
-        .nav-level-1
-            > li
-                padding-left: var(--grid-gutter)
-                padding-right: var(--grid-gutter)
-            > li:first-child
-                border-top: var(--border-width) solid $background-grid-color
-            > li:not(:last-child)
-                border-bottom-color: $background-grid-color
-
-// Menu: mobile search text
-
-.search-button--primary .pf-trigger-btn
-    @include media-breakpoint-down(desktop)
-        justify-content: space-between
-        .pf-trigger-text
-            clip: auto !important
-            clip-path: none !important
-            height: auto !important
-            overflow: visible !important
-            position: static !important
-            white-space: normal !important
-            width: auto !important
-
-// Menu: groups side by side
-.menu .dropdown-menu .nav-level-2:has(> .has-children)
-    @include grid(2, desktop)
-    @include media-breakpoint-up(desktop)
-        grid-template-columns: columns(4) 1fr
-        > li + li
-            margin-top: 0
-
-// Menu: titled dropdown
-.menu .has-children:not(.upper-menu-i18n, .primary-i18n) .dropdown-menu.is-titled
-    @include media-breakpoint-up(desktop)
-        .dropdown-menu-heading
-            width: columns(4)
-        .nav-level-2
-            width: columns(8)
-
-// Background grid
-
-body
-    --background-grid-column: calc((var(--grid-width) - var(--grid-gutter) * #{$background-grid-columns-mobile + 1}) / #{$background-grid-columns-mobile})
-    background-image: repeating-linear-gradient(to right, $background-grid-color 0 $border-width, transparent $border-width var(--background-grid-column), $background-grid-color var(--background-grid-column) calc(var(--background-grid-column) + #{$border-width}), transparent calc(var(--background-grid-column) + #{$border-width}) calc(var(--background-grid-column) + var(--grid-gutter)))
-    background-position: center top
-    background-repeat: no-repeat
-    background-size: calc(var(--grid-width) - var(--grid-gutter) * 2 + #{$border-width}) 100%
-    @include media-breakpoint-up(md)
-        --background-grid-column: var(--column-width)
-
-// Grid
-
-\:root
-    @include media-breakpoint-up(md)
-        --grid-gutter: #{$grid-gutter-md}
-        --grid-gutter-negative: calc(var(--grid-gutter) * -1)
