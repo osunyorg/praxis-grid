@@ -203,6 +203,35 @@ footer#document-footer
     .nav-level-3 a
         @include signature
 
+// Menu: mobile lines
+
+.menu
+    @include media-breakpoint-down(desktop)
+        margin-left: var(--grid-gutter-negative)
+        margin-right: var(--grid-gutter-negative)
+        .nav-level-1
+            > li
+                padding-left: var(--grid-gutter)
+                padding-right: var(--grid-gutter)
+            > li:first-child
+                border-top: var(--border-width) solid $background-grid-color
+            > li:not(:last-child)
+                border-bottom-color: $background-grid-color
+
+// Menu: mobile search text
+
+.search-button--primary .pf-trigger-btn
+    @include media-breakpoint-down(desktop)
+        justify-content: space-between
+        .pf-trigger-text
+            clip: auto !important
+            clip-path: none !important
+            height: auto !important
+            overflow: visible !important
+            position: static !important
+            white-space: normal !important
+            width: auto !important
+
 // Menu: groups side by side
 .menu .dropdown-menu .nav-level-2:has(> .has-children)
     @include grid(2, desktop)
