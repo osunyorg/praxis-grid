@@ -113,6 +113,33 @@ body.pages__section .hero--image-square
     @include media-breakpoint-up(md)
         --illustration-size: calc(#{columns(3)} + var(--grid-gutter))
 
+// Pages: 4 or 5 cards without description, one row on desktop
+
+=pages-one-row($count, $columns, $columns-md)
+    .pages--grid:not(:has(.page-description)):has(> li:nth-child(#{$count}):last-child)
+        @include media-breakpoint-down(desktop)
+            display: grid
+            gap: $spacing-5 var(--grid-gutter)
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+            > li + li
+                margin-top: 0
+        @include media-breakpoint-between(md, desktop)
+            grid-template-columns: repeat($columns-md, minmax(0, 1fr))
+        @include in-page-without-sidebar
+            grid-template-columns: repeat($columns, minmax(0, 1fr))
+            .media:has(picture.is-svg)
+                --illustration-size: #{columns(2)}
+            .page-title,
+            .page-subtitle
+                hyphens: auto
+                word-break: normal
+            .page-title
+                font-size: var(--h5-size)
+                line-height: var(--h5-line-height)
+
++pages-one-row(4, 4, 2)
++pages-one-row(5, 6, 3)
+
 // Cards: titles
 
 =card-titles($title, $subtitle)
@@ -126,8 +153,15 @@ body.pages__section .hero--image-square
             left: 0
             position: relative
             transition: left $arrow-duration $arrow-ease-transition
-    &:has(.#{$title} a:hover, .#{$title} a:focus-visible) .#{$subtitle}::after
-        left: pxToRem(10)
+    .#{$title} a:any-link::after
+        display: inline
+        left: 0
+        position: relative
+        transition: left $arrow-duration $arrow-ease-transition
+    &:has(.#{$title} a:hover, .#{$title} a:focus-visible)
+        .#{$title} a:any-link::after,
+        .#{$subtitle}::after
+            left: pxToRem(10)
     hgroup:has(.#{$subtitle}) .#{$title} a::after
         content: none
 
