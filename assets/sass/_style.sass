@@ -78,7 +78,7 @@
         > li
             align-items: baseline
             &:not(:first-child)
-                border-top-color: $meta-table-border-color
+                border-top-color: $separator-color
     .taxonomy-children > li > a:any-link
         margin-bottom: calc(#{space(1)} * -1)
         margin-top: calc(#{space(1)} * -1)
@@ -147,9 +147,9 @@ footer#document-footer
                 padding-left: var(--grid-gutter)
                 padding-right: var(--grid-gutter)
             > li:first-child
-                border-top: var(--border-width) solid $background-grid-color
+                border-top: var(--border-width) solid $separator-color
             > li:not(:last-child)
-                border-bottom-color: $background-grid-color
+                border-bottom-color: $separator-color
 
 .search-button--primary .pf-trigger-btn
     @include media-breakpoint-down(desktop)
