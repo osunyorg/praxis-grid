@@ -32,6 +32,7 @@
 // Hero
 
 .hero
+    padding-bottom: 0
     .content
         h1:has(> span)
             @include h3
@@ -167,6 +168,11 @@ body.pages__section .hero--image-square
 
 .projects--grid .project
     +card-titles(project-title, project-subtitle)
+
+// Blocks: first block spaced like the others
+
+.document-content > .blocks .block:first-child
+    margin-top: var(--block-space-y)
 
 // Logo
 
