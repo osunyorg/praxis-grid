@@ -59,7 +59,7 @@
 
 =category-tag
     @include meta
-    border: $border-width solid var(--color-border)
+    border: $border-width solid $control-border-color
     color: var(--color-text)
     display: inline-block
     padding: calc(#{space(1)} - #{$border-width}) calc(#{space(1.5)} - #{$border-width})
@@ -77,8 +77,6 @@
     &, .taxonomies > ul
         > li
             align-items: baseline
-            &:not(:first-child)
-                border-top-color: $separator-color
     .taxonomy-children > li > a:any-link
         margin-bottom: calc(#{space(1)} * -1)
         margin-top: calc(#{space(1)} * -1)
@@ -106,6 +104,16 @@ body
 .rich-text
     > * + :is(h1, h2, h3, h4, h5, h6)
         margin-top: $rich-text-vertical-space-before-heading
+
+// Borders: controls
+
+form input:is([type="email"], [type="password"], [type="search"], [type="tel"], [type="text"]),
+.chip,
+.slider-autoplayer button
+    border-color: $control-border-color
+
+.pf-modal .pf-input-wrapper
+    border-bottom-color: $control-border-color
 
 // Header: logo
 
@@ -147,9 +155,7 @@ footer#document-footer
                 padding-left: var(--grid-gutter)
                 padding-right: var(--grid-gutter)
             > li:first-child
-                border-top: var(--border-width) solid $separator-color
-            > li:not(:last-child)
-                border-bottom-color: $separator-color
+                border-top: var(--border-width) solid var(--color-border)
 
 .search-button--primary .pf-trigger-btn
     @include media-breakpoint-down(desktop)
