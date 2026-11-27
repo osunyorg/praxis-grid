@@ -4,6 +4,12 @@
     @include media-breakpoint-up(desktop)
         --btn-line-height: #{$btn-line-height-desktop}
 
+// Buttons: hero actions fit content below desktop
+
+.hero .content .hero-actions a
+    @include media-breakpoint-down(desktop)
+        min-width: 0
+
 // Paragraph spacing
 
 .rich-text
