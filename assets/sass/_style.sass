@@ -63,9 +63,9 @@ body:not(.persons__page) .hero--image-square
     max-width: none
     width: calc(var(--illustration-size) * #{$illustration-size + $illustration-padding * 2} / #{$illustration-size})
 
-// Hero: themes illustration
+// Hero: themes and projects square image
 
-body.pages__section .hero--image-square
+body:is(.pages__section, .projects__page) .hero--image-square
     @include media-breakpoint-down(desktop)
         margin-bottom: 0
         .content
@@ -88,12 +88,12 @@ body.pages__section .hero--image-square
             width: var(--illustration-size)
             picture
                 display: block
-            img
+            picture.is-svg img
                 +illustration-padded
     @include media-breakpoint-up(desktop)
         .content
             .hero-text
-                width: calc(#{columns(8)} + var(--grid-gutter))
+                width: columns(8)
 
 // Pages: svg illustration
 
