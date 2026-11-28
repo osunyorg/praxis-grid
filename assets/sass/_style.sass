@@ -102,6 +102,18 @@
     @include small
     color: var(--color-text-alt)
 
+// Mixins: transcription
+
+=transcription-on-caption($caption)
+    @include media-breakpoint-up(md)
+        #{$caption}
+            max-width: columns(8)
+        .transcription summary
+            @include small
+            margin-left: auto
+            margin-top: calc(-1lh - #{$spacing-2})
+            width: fit-content
+
 // Grid
 
 \:root
@@ -370,17 +382,18 @@ table caption
         .chapter .text
             width: columns(8)
 
+// Transcription: toggle
+
+.transcription summary
+    user-select: none
+
+.transcription details summary::after
+    line-height: inherit
+
 // Blocks: sound
 
 .block-sound
-    @include media-breakpoint-up(md)
-        figcaption
-            max-width: columns(8)
-        .transcription summary
-            @include small
-            margin-left: auto
-            margin-top: calc(-1lh - #{$spacing-2})
-            width: fit-content
+    +transcription-on-caption("figcaption")
 
 .block-sound audio
     border: $border-width solid var(--color-border)
@@ -425,6 +438,16 @@ table thead
     @include in-page-without-sidebar
         .lazy-video-player::after
             backdrop-filter: blur($video-overlay-blur)
+
+// Blocks: video transcription
+
+.block-video
+    +transcription-on-caption(".block-content > p")
+    @include in-page-without-sidebar
+        .block-content > p
+            max-width: none
+        .transcription summary
+            margin-top: 0
 
 // Cards: illustrations
 
