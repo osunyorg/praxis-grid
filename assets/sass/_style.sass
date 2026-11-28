@@ -267,6 +267,25 @@ body:is(.pages__section, .projects__page) .hero--image-square
     @include media-breakpoint-up(md)
         grid-column-gap: var(--grid-gutter) !important
 
+// Blocks: video
+
+.lazy-video-player
+    &::after
+        backdrop-filter: blur($video-overlay-blur)
+        background-color: $video-overlay-background
+    button
+        border-color: $control-border-color
+        border-radius: 0
+        color: var(--color-text)
+        &:hover
+            background-color: transparent
+            border-color: var(--color-text)
+
+.block-video--player
+    @include in-page-without-sidebar
+        .lazy-video-player::after
+            backdrop-filter: blur($video-overlay-blur)
+
 // Cards: illustrations
 
 .page .media picture.is-svg img
