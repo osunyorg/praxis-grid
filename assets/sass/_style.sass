@@ -294,6 +294,29 @@ body:is(.pages__section, .projects__page) .hero--image-square
             font-size: inherit
             line-height: inherit
 
+// Slider
+
+.slider-autoplayer button
+    --slider-button-size: calc(var(--btn-line-height) + 2 * #{nth($btn-padding, 1)} + 2 * var(--border-width))
+    border-radius: 0
+    height: var(--slider-button-size)
+    width: var(--slider-button-size)
+    @include media-breakpoint-up(desktop)
+        --slider-button-size: calc(var(--btn-line-height) + 2 * #{nth($btn-padding-desktop, 1)} + 2 * var(--border-width))
+    &:hover
+        border-color: var(--color-text)
+
+.slider-controls,
+.slider-pagination
+    column-gap: var(--grid-gutter)
+
+.slider-pagination li
+    &::before,
+    &::after
+        height: var(--border-width)
+    &::after
+        margin-top: 0
+
 // Blocks: features
 
 .block-features .features .feature
