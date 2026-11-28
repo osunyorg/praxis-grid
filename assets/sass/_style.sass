@@ -96,6 +96,12 @@
         th
             white-space: normal
 
+// Mixins: captions
+
+=caption-text
+    @include small
+    color: var(--color-text-alt)
+
 // Grid
 
 \:root
@@ -281,6 +287,22 @@ body:is(.pages__section, .projects__page) .hero--image-square
 .organizations--grid
     @include media-breakpoint-up(md)
         grid-column-gap: var(--grid-gutter) !important
+
+// Captions
+
+.block-image figcaption,
+.block-gallery figcaption,
+.block-chapter figcaption,
+.block-chapter .notes,
+.block-sound figcaption,
+.block-video .block-content > p,
+table caption
+    +caption-text
+
+.hero .content figure figcaption .credit,
+.block-gallery figure .credit *,
+.block-image figcaption .credit p
+    +caption-text
 
 // Blocks: image
 
