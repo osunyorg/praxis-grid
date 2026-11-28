@@ -459,8 +459,15 @@ $timeline-line-gap: calc(#{$block-timeline-bullet-width} / 2 + #{space(2)})
         margin-bottom: space(2)
         margin-top: calc(#{$block-timeline-bullet-width} + #{space(2)})
     @include in-page-without-sidebar
+        &::before,
+        &::after
+            left: columns(4)
         &::after
             margin-left: calc((var(--grid-gutter) - var(--border-width)) / 2)
+        .title
+            width: columns(4)
+        [itemprop="text"]:first-child
+            margin-left: columns(4)
 
 .block-timeline--horizontal .timeline-event
     .title
