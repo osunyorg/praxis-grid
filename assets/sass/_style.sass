@@ -81,6 +81,21 @@
         margin-bottom: calc(#{space(1)} * -1)
         margin-top: calc(#{space(1)} * -1)
 
+// Mixins: table
+
+=table-grid-columns($count)
+    &:has(thead tr > :nth-child(#{$count}):last-child)
+        table-layout: fixed
+        th,
+        td
+            padding-right: var(--grid-gutter)
+            width: calc(#{columns(12 / $count)} + var(--grid-gutter))
+            &:last-child
+                padding-right: 0
+                width: columns(12 / $count)
+        th
+            white-space: normal
+
 // Grid
 
 \:root
@@ -279,6 +294,18 @@ body:is(.pages__section, .projects__page) .hero--image-square
     &::-webkit-media-controls-play-button,
     &::-webkit-media-controls-mute-button
         border-radius: 0
+
+// Blocks: table
+
+table thead
+    font-weight: $font-weight-medium
+
+.block-datatable table
+    @include media-breakpoint-up(md)
+        +table-grid-columns(2)
+        +table-grid-columns(3)
+        +table-grid-columns(4)
+        +table-grid-columns(6)
 
 // Blocks: video
 
