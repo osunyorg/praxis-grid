@@ -646,6 +646,49 @@ p.more[aria-hidden="true"]:not(.author-content .more)
     .project-categories
         order: 2
 
+// Navigation: previous and next
+
+$navigation-arrow-shift: pxToRem(10) // Custom
+
+.posts-navigation,
+.siblings-navigation
+    ul .previous::before,
+    ul .next::after
+        left: 0
+        position: relative
+        transition: left $arrow-duration $arrow-ease-transition
+    ul .previous::before
+        left: $navigation-arrow-shift
+        margin-right: calc(#{$spacing-2} + #{$navigation-arrow-shift})
+    ul .next::after
+        left: calc(-1 * #{$navigation-arrow-shift})
+        margin-left: calc(#{$spacing-2} + #{$navigation-arrow-shift})
+    ul :is(.previous, .next):has(a:hover, a:focus-visible)
+        &::before,
+        &::after
+            left: 0
+    @include media-breakpoint-up(desktop)
+        ul .previous a
+            padding-left: columns(1)
+        ul .next a
+            padding-right: columns(1)
+        ul .previous span::before,
+        ul .next span::after
+            line-height: inherit
+            margin: 0
+            position: absolute
+            text-align: center
+            transition: transform $arrow-duration $arrow-ease-transition
+            width: 1em
+        ul .previous span::before
+            left: calc(#{columns(1)} / 2 - 0.5em + #{$navigation-arrow-shift})
+        ul .next span::after
+            right: calc(#{columns(1)} / 2 - 0.5em + #{$navigation-arrow-shift})
+        ul .previous:has(a:hover, a:focus-visible) span::before
+            transform: translateX(calc(-1 * #{$navigation-arrow-shift}))
+        ul .next:has(a:hover, a:focus-visible) span::after
+            transform: translateX($navigation-arrow-shift)
+
 // Publications: list
 
 .publications .publication
