@@ -296,33 +296,41 @@ body:is(.pages__section, .projects__page) .hero--image-square
 
 // Slider
 
-.slider-autoplayer button
+.slider
     --slider-button-size: calc(var(--btn-line-height) + 2 * #{nth($btn-padding, 1)} + 2 * var(--border-width))
+    @include media-breakpoint-up(desktop)
+        --slider-button-size: calc(var(--btn-line-height) + 2 * #{nth($btn-padding-desktop, 1)} + 2 * var(--border-width))
+
+.slider-autoplayer button
     border-radius: 0
     height: var(--slider-button-size)
     width: var(--slider-button-size)
-    @include media-breakpoint-up(desktop)
-        --slider-button-size: calc(var(--btn-line-height) + 2 * #{nth($btn-padding-desktop, 1)} + 2 * var(--border-width))
     &:hover
         border-color: var(--color-text)
 
-.slider-arrows button
-    border: var(--border-width) solid transparent
-    padding: calc(#{$spacing-3} - var(--border-width))
-    &::before
-        display: block
-        height: 1em
-        line-height: 1
-        width: 1em
-    &:hover
-        border-color: $control-border-color
+.slider-arrows
+    margin-bottom: 0
+    button
+        border: var(--border-width) solid transparent
+        font-size: var(--btn-font-size)
+        height: var(--slider-button-size)
+        padding: 0
+        width: var(--slider-button-size)
+        &::before
+            display: block
+            height: 1em
+            line-height: 1
+            margin-inline: auto
+            width: 1em
+        &:hover
+            border-color: $control-border-color
 
 .slider-arrows .slider-arrow-previous
     margin-left: 0
 
 .slider-progression
     font-variant-numeric: tabular-nums
-    margin-inline: calc(#{$spacing-3} - var(--border-width))
+    margin-inline: calc((var(--slider-button-size) - var(--btn-font-size)) / 2 - var(--border-width))
 
 .slider-controls,
 .slider-pagination
