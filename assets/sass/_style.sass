@@ -573,8 +573,9 @@ table thead
 
 .projects--list article.project
     +card-titles(project-title, project-subtitle)
-    @include in-page-with-or-without-sidebar
-        +card-titles(project-title, project-subtitle)
+    .project-content
+        @include in-page-with-or-without-sidebar
+            +card-titles(project-title, project-subtitle)
     .project-meta
         margin-top: $spacing-2
 
@@ -582,6 +583,22 @@ table thead
     +card-titles(page-title, page-subtitle)
     @include in-page-with-or-without-sidebar
         +card-titles(page-title, page-subtitle)
+
+// Cards: list spacing
+
+$card-lists: ".categories--list, .events--list, .exhibitions--list, .jobs--list, .journals--list, .laboratories--list, .locations--list, .organizations--list, .pages--list:not(.title-only), .persons--list, .posts--list, .programs--list, .projects--list, .schools--list, .testimonials--list, .block-features--list .features"
+
+=card-list-spacing
+    > li:nth-child(n)
+        margin-bottom: 0
+        margin-top: 0
+        padding-bottom: calc(var(--grid-gutter) / 2)
+        padding-top: calc(var(--grid-gutter) / 2)
+
+#{$card-lists}
+    +card-list-spacing
+    @include in-page-with-or-without-sidebar
+        +card-list-spacing
 
 // Cards: more
 
