@@ -282,6 +282,22 @@ body:is(.pages__section, .projects__page) .hero--image-square
             font-size: inherit
             line-height: inherit
 
+// Blocks: key figures
+
+.block-key_figures li .key-figure-text
+    @include meta
+    color: var(--color-text-alt)
+    > span
+        @include signature
+        align-items: baseline
+        color: var(--color-text)
+        column-gap: space(2)
+        display: flex
+        flex-wrap: wrap
+    strong
+        @include h1
+        margin-inline-end: 0
+
 // Blocks: organizations
 
 .organizations--grid
@@ -321,6 +337,16 @@ table caption
             width: columns(8)
 
 // Blocks: sound
+
+.block-sound
+    @include media-breakpoint-up(md)
+        figcaption
+            max-width: columns(8)
+        .transcription summary
+            @include small
+            margin-left: auto
+            margin-top: calc(-1lh - #{$spacing-2})
+            width: fit-content
 
 .block-sound audio
     border: $border-width solid var(--color-border)
