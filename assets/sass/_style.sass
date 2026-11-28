@@ -282,6 +282,22 @@ body:is(.pages__section, .projects__page) .hero--image-square
     @include media-breakpoint-up(md)
         grid-column-gap: var(--grid-gutter) !important
 
+// Blocks: image
+
+.block-image figcaption > div:not(.credit)
+    > * + *
+        margin-top: $rich-text-vertical-space-before
+    @include in-page-without-sidebar
+        flex: 0 1 auto
+        width: columns(8)
+
+// Blocks: chapter
+
+.block-chapter
+    @include in-page-without-sidebar
+        .chapter .text
+            width: columns(8)
+
 // Blocks: sound
 
 .block-sound audio
