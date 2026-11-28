@@ -326,6 +326,8 @@ table thead
 // Blocks: video
 
 .lazy-video-player
+    img
+        filter: $video-cover-filter
     &::after
         backdrop-filter: blur($video-overlay-blur)
         background-color: $video-overlay-background
