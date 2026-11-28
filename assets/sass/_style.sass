@@ -306,6 +306,24 @@ body:is(.pages__section, .projects__page) .hero--image-square
     &:hover
         border-color: var(--color-text)
 
+.slider-arrows button
+    border: var(--border-width) solid transparent
+    padding: calc(#{$spacing-3} - var(--border-width))
+    &::before
+        display: block
+        height: 1em
+        line-height: 1
+        width: 1em
+    &:hover
+        border-color: $control-border-color
+
+.slider-arrows .slider-arrow-previous
+    margin-left: 0
+
+.slider-progression
+    font-variant-numeric: tabular-nums
+    margin-inline: calc(#{$spacing-3} - var(--border-width))
+
 .slider-controls,
 .slider-pagination
     column-gap: var(--grid-gutter)
@@ -428,6 +446,33 @@ table caption
     &::-webkit-media-controls-play-button,
     &::-webkit-media-controls-mute-button
         border-radius: 0
+
+// Blocks: timeline
+
+$timeline-line-gap: calc(#{$block-timeline-bullet-width} / 2 + #{space(2)})
+
+.block-timeline--vertical .timeline-event
+    &::before
+        border-radius: 0
+    &::after
+        background: var(--color-border)
+        margin-bottom: space(2)
+        margin-top: calc(#{$block-timeline-bullet-width} + #{space(2)})
+    @include in-page-without-sidebar
+        &::after
+            margin-left: calc((var(--grid-gutter) - var(--border-width)) / 2)
+
+.block-timeline--horizontal .timeline-event
+    .title
+        @include h4
+    .line
+        background: linear-gradient(to right, transparent $timeline-line-gap, var(--color-border) 0, var(--color-border) calc(100% - #{$timeline-line-gap}), transparent 0)
+        &::before
+            border-radius: 0
+            margin-left: calc(#{$block-timeline-bullet-width} / -2)
+            top: calc((var(--border-width) - #{$block-timeline-bullet-width}) / 2)
+    @include media-breakpoint-up(desktop)
+        width: columns(4)
 
 // Blocks: table
 
