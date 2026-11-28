@@ -260,6 +260,13 @@ body:is(.pages__section, .projects__page) .hero--image-square
             .hero-text
                 width: columns(8)
 
+// Hero: publication details
+
+.publications__page .hero hgroup
+    @include lead-hero
+    h1
+        margin-bottom: $spacing-3
+
 // Buttons
 
 \:root
@@ -630,6 +637,29 @@ p.more[aria-hidden="true"]:not(.author-content .more)
         order: 1
     .project-categories
         order: 2
+
+// Publications: list
+
+.publications .publication
+    padding-bottom: calc(var(--grid-gutter) / 2)
+    padding-top: calc(var(--grid-gutter) / 2)
+    &::after
+        content: none
+    .publication-title
+        @include icon(arrow-right-line, after, true)
+        &::after
+            left: 0
+            position: relative
+            transition: left $arrow-duration $arrow-ease-transition
+    &:has(.publication-title a:hover, .publication-title a:focus-visible) .publication-title::after
+        left: pxToRem(10)
+    .publication-meta
+        margin-top: space(4)
+    @include media-breakpoint-up(desktop)
+        .publication-authors
+            align-self: last baseline
+            margin-left: auto
+            text-align: right
 
 // Categories
 
