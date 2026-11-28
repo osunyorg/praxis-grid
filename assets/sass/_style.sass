@@ -571,6 +571,18 @@ table thead
     @include in-page-with-or-without-sidebar
         +card-titles(page-title, page-subtitle)
 
+.projects--list article.project
+    +card-titles(project-title, project-subtitle)
+    @include in-page-with-or-without-sidebar
+        +card-titles(project-title, project-subtitle)
+    .project-meta
+        margin-top: $spacing-2
+
+.block-pages--list .pages article.page
+    +card-titles(page-title, page-subtitle)
+    @include in-page-with-or-without-sidebar
+        +card-titles(page-title, page-subtitle)
+
 // Cards: more
 
 p.more[aria-hidden="true"]:not(.author-content .more)
