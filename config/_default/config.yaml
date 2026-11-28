@@ -22,3 +22,11 @@ params:
     lightbox:
       in_hero:
         disabled: true
+  blocks:
+    pages:
+      alternate:
+        more: false
+  jobs:
+    index:
+      options:
+        with_more: false

@@ -553,6 +553,47 @@ table thead
 .projects--grid .project
     +card-titles(project-title, project-subtitle)
 
+.projects--large .project
+    +card-titles(project-title, project-subtitle)
+    @include in-page-with-or-without-sidebar
+        +card-titles(project-title, project-subtitle)
+
+.block-pages--large .pages article.page
+    +card-titles(page-title, page-subtitle)
+    @include in-page-with-or-without-sidebar
+        +card-titles(page-title, page-subtitle)
+
+// Cards: more
+
+p.more[aria-hidden="true"]:not(.author-content .more)
+    display: none
+
+// Cards: project year before categories
+
+.projects .project-meta
+    align-items: baseline
+    column-gap: space(4)
+    display: flex
+    flex-wrap: wrap
+    .project-categories
+        margin-top: 0
+
+.projects--grid .project-content
+    align-items: baseline
+    column-gap: space(4)
+    display: grid
+    grid-template-columns: auto 1fr
+    row-gap: 0
+    .project-description
+        display: contents
+    hgroup,
+    .project-summary
+        grid-column: 1 / -1
+    .project-meta
+        order: 1
+    .project-categories
+        order: 2
+
 // Categories
 
 ul[class$="-categories"]:not(.taxonomy-categories ul),
