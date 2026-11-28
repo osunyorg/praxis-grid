@@ -267,6 +267,14 @@ body:is(.pages__section, .projects__page) .hero--image-square
     h1
         margin-bottom: $spacing-3
 
+// Publication: authors
+
+.publications__page .document-content > .container .document-sidebar [itemprop="author"] .person
+    @include media-breakpoint-up(desktop)
+        column-gap: var(--grid-gutter)
+        .avatar
+            min-width: 0
+
 // Buttons
 
 \:root
