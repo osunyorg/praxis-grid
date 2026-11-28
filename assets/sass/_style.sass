@@ -267,6 +267,19 @@ body:is(.pages__section, .projects__page) .hero--image-square
     @include media-breakpoint-up(md)
         grid-column-gap: var(--grid-gutter) !important
 
+// Blocks: sound
+
+.block-sound audio
+    border: $border-width solid var(--color-border)
+    &::-webkit-media-controls-enclosure
+        background-color: transparent
+        border-radius: 0
+    &::-webkit-media-controls-panel
+        background-color: transparent
+    &::-webkit-media-controls-play-button,
+    &::-webkit-media-controls-mute-button
+        border-radius: 0
+
 // Blocks: video
 
 .lazy-video-player
