@@ -282,6 +282,23 @@ body:is(.pages__section, .projects__page) .hero--image-square
             font-size: inherit
             line-height: inherit
 
+// Blocks: features
+
+.block-features .features .feature
+    .name
+        @include h4
+    figure.media:has(picture.is-svg)
+        --illustration-size: calc(var(--background-grid-column) * 2 + var(--grid-gutter))
+        margin-bottom: $spacing-3
+        overflow: visible
+        picture
+            display: block
+        img
+            aspect-ratio: 1
+            +illustration-padded
+        @include media-breakpoint-up(md)
+            --illustration-size: #{columns(2)}
+
 // Blocks: key figures
 
 .block-key_figures li .key-figure-text
